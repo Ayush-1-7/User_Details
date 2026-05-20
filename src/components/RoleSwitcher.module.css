@@ -1,0 +1,134 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  margin-bottom: 24px;
+  border-radius: var(--radius-md);
+  animation: fadeIn 0.4s ease;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.toggleGroup {
+  display: flex;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+body.light-theme .toggleGroup {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.toggleButton {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.toggleButton:hover {
+  color: var(--text-primary);
+}
+
+.active {
+  background: var(--primary);
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+.deptSelectWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: fadeIn 0.3s ease;
+}
+
+.selectLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.select {
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+}
+
+.themeToggle {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.themeToggle:hover {
+  background: var(--border-color);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .leftSection {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .toggleGroup {
+    width: 100%;
+  }
+  
+  .toggleButton {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .deptSelectWrapper {
+    width: 100%;
+  }
+  
+  .select {
+    width: 100%;
+  }
+  
+  .rightSection {
+    justify-content: flex-end;
+  }
+}

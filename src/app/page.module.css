@@ -1,0 +1,345 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Background Aurora Blobs */
+.blob1 {
+  position: absolute;
+  top: -10%;
+  left: 10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blob2 {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px;
+  z-index: 10;
+}
+
+.brandWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.brandIcon {
+  font-size: 28px;
+  filter: drop-shadow(0 0 8px var(--primary-glow));
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+.brandName {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--text-primary), #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brandTagline {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.navLink:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+}
+
+body.light-theme .navLink:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.navActive {
+  background: rgba(59, 130, 246, 0.1) !important;
+  color: var(--primary) !important;
+  border-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.05);
+}
+
+.sidebarDivider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 16px 0;
+}
+
+.dbIndicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.dbDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--success);
+  box-shadow: 0 0 10px var(--success-glow);
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.dbStatus {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--success);
+}
+
+.dbSub {
+  font-size: 9px;
+  color: var(--text-muted);
+}
+
+.sidebarFooter {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Main Area */
+.main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 40px 48px;
+  z-index: 1;
+  position: relative;
+}
+
+/* Header bar */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.preTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+}
+
+.roleBadge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 20px;
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  max-width: 400px;
+  animation: slideInRight var(--transition-fast) cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-left: 4px solid transparent;
+}
+
+.success {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-left-color: var(--success);
+  color: #34d399;
+}
+
+body.light-theme .success {
+  background: rgba(16, 185, 129, 0.05);
+  color: #065f46;
+}
+
+.error {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-left-color: var(--danger);
+  color: #f87171;
+}
+
+body.light-theme .error {
+  background: rgba(239, 68, 68, 0.05);
+  color: #991b1b;
+}
+
+.toastIcon {
+  font-size: 16px;
+}
+
+/* Error Banner */
+.errorBanner {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-md);
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation: fadeIn var(--transition-fast);
+}
+
+.errorIcon {
+  font-size: 24px;
+}
+
+.errorContent {
+  flex: 1;
+}
+
+.errorContent h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f87171;
+  margin-bottom: 4px;
+}
+
+body.light-theme .errorContent h4 {
+  color: #b91c1c;
+}
+
+.errorContent p {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+
+.retryBtn {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+body.light-theme .retryBtn {
+  color: #b91c1c;
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.retryBtn:hover {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: white;
+}
+
+/* Responsive constraints */
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none; /* In production, we'd add a hamburger menu, but this keeps the responsive dashboard layout solid */
+  }
+  
+  .main {
+    margin-left: 0;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .headerRight {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
