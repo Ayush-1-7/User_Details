@@ -1,4 +1,8 @@
 import mongoose from "mongoose";
+import dns from "dns";
+
+// Fix Node.js 18+ DNS resolution preference for IPv6 which causes querySrv ECONNREFUSED in MongoDB Atlas
+dns.setDefaultResultOrder("ipv4first");
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/employee-management";
 
